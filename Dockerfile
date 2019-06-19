@@ -8,12 +8,20 @@ RUN apt-get -y install graphviz
 RUN apt-get -y install npm
 RUN apt-get -y install curl
 RUN apt-get -y install git
+
+RUN apt-get -y install language-pack-zh-hant
+ENV LC_ALL zh_TW.utf8
+
+ENV TZ Asia/Taipei
+
 RUN npm install -g n
 RUN n stable
 RUN npm install -g gitbook-cli
 RUN npm install -g gitbook-plugin-plantuml-svg
 RUN npm install -g binwin20/gitbook-plugin-plantuml.git
 RUN gitbook install latest
-ENV LC_ALL=zh_TW.UTF-8
+
+
+
 
 CMD ["/bin/bash"]
